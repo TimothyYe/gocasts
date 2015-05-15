@@ -1,3 +1,9 @@
+  <script src="/public/js/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="/public/plugins/bootstrap/js/bootstrap.js"></script>
+  {{range .moreScripts}}
+      <script src="/public/{{.}}" type="text/javascript" charset="utf-8"></script>
+  {{end}}
+
   {{if eq .RunMode "dev"}}
     {{template "debug.html" .}}
   {{end}}
