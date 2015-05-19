@@ -1,6 +1,7 @@
 {{set . "title" "Home"}}
-{{template "header.html" .}}
+{{append . "moreStyles" "/public/css/custom.css"}}
 
+{{template "header.html" .}}
 
 
 {{template "footer.html" .}}
