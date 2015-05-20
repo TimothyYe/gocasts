@@ -14,10 +14,12 @@
 }
 
 #font-brand {
+    font-family: Tahoma,Helvetica,Arial,'宋体',sans-serif;
     color: #FFFFFF;
 }
 
 #behind-brand {
+    font-family: Tahoma,Helvetica,Arial,'宋体',sans-serif;
     color: #666666;
 }
 
@@ -32,7 +34,7 @@
 
 #jumbotron h1 {
     color: #FFFFFF;    
-    font-family: "Source Sans Pro";
+    font-family: Tahoma,Helvetica,Arial,'宋体',sans-serif;
     font-size: 80px;
     font-weight: 700;
     margin-top: 14px;
