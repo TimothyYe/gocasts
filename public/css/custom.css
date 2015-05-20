@@ -31,9 +31,7 @@
 }
 
 #jumbotron h1 {
-    color: #FFFFFF;
-    /*color: hsl(0, 0%, 100%);*/
-    
+    color: #FFFFFF;    
     font-family: "Source Sans Pro";
     font-size: 80px;
     font-weight: 700;
@@ -43,15 +41,11 @@
 
 #jumbotron h1 span {
     color: #77CCA4;
-    /*color: hsl(183, 61%, 75%);*/
 }
 
 #content {
     background-color: #F0F0D8;
 }
-/*#bottom {
-  background-color: #3C8E77;
-}*/
 
 #footer {
     background-color: #B4DEBE;

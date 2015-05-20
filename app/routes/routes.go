@@ -4,6 +4,18 @@ package routes
 import "github.com/revel/revel"
 
 
+type tAdmin struct {}
+var Admin tAdmin
+
+
+func (_ tAdmin) Index(
+		) string {
+	args := make(map[string]string)
+	
+	return revel.MainRouter.Reverse("Admin.Index", args).Url
+}
+
+
 type tApp struct {}
 var App tApp
 
