@@ -14,16 +14,16 @@
 }
 
 #font-brand {
-	color: #FFFFFF;
+    color: #FFFFFF;
 }
 
 #behind-brand {
-	color: #666666;
+    color: #666666;
 }
 
 #jumbotron {
-	padding-top: 90px;
-	padding-bottom: 0px;
+    padding-top: 90px;
+    padding-bottom: 0px;
     background-color: #666666;
     margin-bottom: 0px;
     margin-top: 0px;
@@ -31,8 +31,9 @@
 }
 
 #jumbotron h1 {
-	color: #FFFFFF;
+    color: #FFFFFF;
     /*color: hsl(0, 0%, 100%);*/
+    
     font-family: "Source Sans Pro";
     font-size: 80px;
     font-weight: 700;
@@ -41,7 +42,7 @@
 }
 
 #jumbotron h1 span {
-	color: #77CCA4;
+    color: #77CCA4;
     /*color: hsl(183, 61%, 75%);*/
 }
 
@@ -54,4 +55,14 @@
 
 #footer {
     background-color: #B4DEBE;
+}
+
+@media (max-width: 480px) {
+    #jumbotron h1 {
+    	font-size: 60px;
+    }
+
+    #jumbotron img {
+    	width: 300px;
+    }
 }
