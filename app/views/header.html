@@ -5,6 +5,8 @@
   <title>{{.title}}</title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <link rel="stylesheet" type="text/css" href="/public/plugins/bootstrap/css/bootstrap.css">
+  <link href="http://fonts.useso.com/css?family=Lobster" rel="stylesheet" type="text/css" />
+  <link href='http://fonts.useso.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css' />
   <link rel="shortcut icon" type="image/png" href="/public/img/favicon.png"> 
   {{range .moreStyles}}
     <link rel="stylesheet" type="text/css" href="{{.}}"> 
@@ -21,16 +23,15 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a href="/" class="navbar-brand">GoCasts</a>
+        <a href="/" class="navbar-brand"><span id="front-brand"><b>Go</b></span> <span id="behind-brand"><b>Casts</b></span></a>
       </div>
       <div class="collapse navbar-collapse">
        <!--  <ul class="nav navbar-nav">
           <li><a href="/lessons">Lessons</a></li>
         </ul> -->
         <ul class="nav navbar-nav navbar-right">
-          <li><a target="_blank" href="http://gophercasts.uservoice.com/">Suggestions</a></li>
-          <li><a href="/users/sign_up">Create Free Account</a></li>
-          <li><a href="/users/login">Log In</a></li>
+          <li><a href="/users/sign_up">Log In</a></li>
+          <li><a href="/users/login">About</a></li>
         </ul>
       </div>
       <!--/.nav-collapse -->
