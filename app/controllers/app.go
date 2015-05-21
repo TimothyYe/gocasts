@@ -19,7 +19,7 @@ func (c App) About() revel.Result {
 }
 
 func (c App) Login() revel.Result {
-	return c.Redirect(App.Index)
+	return c.Render()
 }
 
 func (c App) Logout() revel.Result {
