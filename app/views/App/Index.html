@@ -1,34 +1,72 @@
 {{set . "title" "Home"}} 
 {{append . "moreStyles" "/public/css/custom.css"}} 
+{{append . "moreStyles" "/public/css/casts.css"}} 
 {{template "header.html" .}}
 
 <div id="jumbotron" class="jumbotron">
-  <h1>Go<span>Casts</span></h1>
-  <img src="/public/img/go-logo2.png" />
+    <h1>Go<span>Casts</span></h1>
+    <img src="/public/img/go-logo2.png" />
 </div>
 <div id="content">
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>  
-  <br/>
-  <br/>
-  <br/>
-  <br/>  
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-</div>
+    <div class="col-md-8 col-md-offset-2 col-xs-12">
+        <ul class="catCardList">
+            <li class="catCardList">
+                <div class="catCard">
+                    <a href="/casts/" target="_blank"><img src="/public/img/go-logo.png" alt="" /></a>
+                    <div class="lowerCatCard">
+                        <h3>标题</h3>
+                        <p>介绍介绍介绍</p>
+                        <div id="catCardButton" class="button"><a href="/casts/" target="_blank">点击查看</a></div>
+                    </div>
+                </div>
+            </li>
+            <li class="catCardList">
+                <div class="catCard">
+                    <a href="/casts/" target="_blank"><img src="/public/img/go-logo.png" alt="" /></a>
+                    <div class="lowerCatCard">
+                        <h3>标题</h3>
+                        <p>介绍介绍介绍</p>
+                        <div id="catCardButton" class="button"><a href="/casts/" target="_blank">点击查看</a></div>
+                    </div>
+                </div>
+            </li>
+            <li class="catCardList">
+                <div class="catCard">
+                    <a href="/casts/" target="_blank"><img src="/public/img/go-logo.png" alt="" /></a>
+                    <div class="lowerCatCard">
+                        <h3>标题</h3>
+                        <p>介绍介绍介绍</p>
+                        <div id="catCardButton" class="button"><a href="/casts/" target="_blank">点击查看</a></div>
+                    </div>
+                </div>
+            </li>
+            <li class="catCardList">
+                <div class="catCard">
+                    <a href="/casts/" target="_blank"><img src="/public/img/go-logo.png" alt="" /></a>
+                    <div class="lowerCatCard">
+                        <h3>标题</h3>
+                        <p>介绍介绍介绍</p>
+                        <div id="catCardButton" class="button"><a href="/casts/" target="_blank">点击查看</a></div>
+                    </div>
+                </div>
+            </li>
 
+        </ul>
+    </div>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/><br/>
+    <br/>
+</div>
 <!-- <div id="bottom">
 </div> -->
-
 {{template "footer.html" .}}
