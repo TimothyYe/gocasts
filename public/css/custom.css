@@ -14,12 +14,12 @@
 }
 
 #font-brand {
-    font-family: Tahoma,Helvetica,Arial,'宋体',sans-serif;
+    font-family: Tahoma, Helvetica, Arial, '宋体', sans-serif;
     color: #FFFFFF;
 }
 
 #behind-brand {
-    font-family: Tahoma,Helvetica,Arial,'宋体',sans-serif;
+    font-family: Tahoma, Helvetica, Arial, '宋体', sans-serif;
     color: #666666;
 }
 
@@ -33,8 +33,8 @@
 }
 
 #jumbotron h1 {
-    color: #FFFFFF;    
-    font-family: Tahoma,Helvetica,Arial,'宋体',sans-serif;
+    color: #FFFFFF;
+    font-family: Tahoma, Helvetica, Arial, '宋体', sans-serif;
     font-size: 80px;
     font-weight: 700;
     margin-top: 14px;
@@ -47,18 +47,22 @@
 
 #content {
     background-color: #F0F0D8;
+    height: 900px;
 }
 
 #footer {
     background-color: #B4DEBE;
 }
 
+#copyright {
+    margin-top: 15px;
+}
+
 @media (max-width: 480px) {
     #jumbotron h1 {
-    	font-size: 60px;
+        font-size: 60px;
     }
-
     #jumbotron img {
-    	width: 300px;
+        width: 300px;
     }
 }
