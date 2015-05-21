@@ -34,10 +34,21 @@ func (_ tApp) About(
 	return revel.MainRouter.Reverse("App.About", args).Url
 }
 
-func (_ tApp) Login(
+func (_ tApp) LoginView(
 		) string {
 	args := make(map[string]string)
 	
+	return revel.MainRouter.Reverse("App.LoginView", args).Url
+}
+
+func (_ tApp) Login(
+		username string,
+		password string,
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "username", username)
+	revel.Unbind(args, "password", password)
 	return revel.MainRouter.Reverse("App.Login", args).Url
 }
 

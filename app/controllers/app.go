@@ -18,8 +18,22 @@ func (c App) About() revel.Result {
 	return c.Render()
 }
 
-func (c App) Login() revel.Result {
+func (c App) LoginView() revel.Result {
 	return c.Render()
+}
+
+func (c App) Login(username, password string) revel.Result {
+
+	if username == "" || password == "" {
+		return c.Redirect(App.Login)
+	}
+
+	if username == "admin@abc.com" && password == "admin888" {
+		c.Session["user"] = "admin"
+		return c.Redirect(Admin.Index)
+	}
+
+	return c.Redirect(App.Login)
 }
 
 func (c App) Logout() revel.Result {

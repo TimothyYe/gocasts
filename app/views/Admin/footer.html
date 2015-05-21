@@ -1,0 +1,22 @@
+<script src="/public/js/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="/public/plugins/bootstrap/js/bootstrap.js"></script>
+{{range .moreScripts}}
+<script src="/public/{{.}}" type="text/javascript" charset="utf-8"></script>
+{{end}} 
+{{if eq .RunMode "dev"}} 
+	{{template "debug.html" .}} 
+{{end}}
+<div id="footer" class="navbar navbar-fixed-bottom">
+    <div id="copyright" class="container">
+      <div class="row">
+        <div class="col-md-12 col-xs-12">
+          <div class="col-md-6 col-xs-6">Powered by Golang &amp Revel</div>
+          <div class="col-md-6 col-xs-6">
+           <div class="pull-right">© 2015 <a href="http://github.com/timothyye"> timothyye </a> All Rights Reserved.</div>
+         </div>
+       </div>
+     </div>
+   </div>
+ </div>
+</body>
+</html>
