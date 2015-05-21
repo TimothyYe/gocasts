@@ -1,3 +1,7 @@
+body {
+    font-family: Tahoma, Helvetica, Arial, '宋体', sans-serif;
+}
+
 #nav_bar {
     background-color: #B4DF37;
     color: #FFFFFF;
@@ -14,12 +18,11 @@
 }
 
 #font-brand {
-    font-family: Tahoma, Helvetica, Arial, '宋体', sans-serif;
+    
     color: #FFFFFF;
 }
 
 #behind-brand {
-    font-family: Tahoma, Helvetica, Arial, '宋体', sans-serif;
     color: #666666;
 }
 
@@ -34,7 +37,6 @@
 
 #jumbotron h1 {
     color: #FFFFFF;
-    font-family: Tahoma, Helvetica, Arial, '宋体', sans-serif;
     font-size: 80px;
     font-weight: 700;
     margin-top: 14px;
@@ -57,7 +59,6 @@
 
 #login-content h1 {
     color: #FFFFFF;
-    font-family: Tahoma, Helvetica, Arial, '宋体', sans-serif;
     font-size: 80px;
     font-weight: 700;
     margin-top: 14px;
