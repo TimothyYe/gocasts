@@ -27,6 +27,27 @@ func (_ tApp) Index(
 	return revel.MainRouter.Reverse("App.Index", args).Url
 }
 
+func (_ tApp) About(
+		) string {
+	args := make(map[string]string)
+	
+	return revel.MainRouter.Reverse("App.About", args).Url
+}
+
+func (_ tApp) Login(
+		) string {
+	args := make(map[string]string)
+	
+	return revel.MainRouter.Reverse("App.Login", args).Url
+}
+
+func (_ tApp) Logout(
+		) string {
+	args := make(map[string]string)
+	
+	return revel.MainRouter.Reverse("App.Logout", args).Url
+}
+
 
 type tStatic struct {}
 var Static tStatic
