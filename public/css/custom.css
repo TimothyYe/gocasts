@@ -72,6 +72,10 @@ body {
     text-decoration: none
 }
 
+#wrapper {
+    padding-top: 150px;
+}
+
 #footer {
     background-color: #B4DEBE;
 }

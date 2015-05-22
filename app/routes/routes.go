@@ -15,6 +15,13 @@ func (_ tAdmin) Index(
 	return revel.MainRouter.Reverse("Admin.Index", args).Url
 }
 
+func (_ tAdmin) Password(
+		) string {
+	args := make(map[string]string)
+	
+	return revel.MainRouter.Reverse("Admin.Password", args).Url
+}
+
 
 type tApp struct {}
 var App tApp

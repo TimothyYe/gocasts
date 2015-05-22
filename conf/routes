@@ -11,6 +11,7 @@ POST    /login                            		App.Login
 GET     /logout                           		App.Logout
 
 GET     /admin									Admin.Index
+GET     /admin/password 						Admin.Password
 
 
 # Ignore favicon requests
