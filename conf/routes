@@ -11,6 +11,7 @@ POST    /login                            		App.Login
 GET     /logout                           		App.Logout
 
 GET     /admin									Admin.Index
+GET     /admin/casts                            Admin.Casts
 GET     /admin/password 						Admin.Password
 
 
