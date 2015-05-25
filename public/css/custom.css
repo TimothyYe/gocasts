@@ -91,4 +91,7 @@ body {
     #jumbotron img {
         width: 300px;
     }
+    #login-title h1 {
+        font-size: 60px;
+    }
 }

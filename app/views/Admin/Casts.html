@@ -3,28 +3,65 @@
 {{template "Admin/header.html" .}}
 
 <div id="content">
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>  
-  <br/>
-  <br/>
-  <br/>
-  <br/>  
-  <br/>
-  <br/>
-  <br/>
-  <br/>
+    <div id="wrapper">
+        <a href="/admin/casts/add">
+            <button class="btn btn-success col-md-offset-1">新增</button>
+        </a>
+        <div class="container">
+            <div class="row">
+                <table class="table table-striped col-md-12">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Author</th>
+                            <th>Author Url</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{ if .Num }} {{ range .Casts }}
+                        <tr>
+                            <td>{{ .Title }}</td>
+                            <td>{{ .Author }}</td>
+                            <td>{{ .AuthorUrl }}</td>
+                            <td style="width:120px">
+                                <div>
+                                    <span class="pull-left">
+                    <a href="/admin/casts/modify/{{ .Id }}"><button class="btn btn-success btn-sm">修改</button></a>
+                  </span>
+                                    <span class="pull-right">
+                    <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal{{ .Id }}">删除</button>
+                  </span>
+                                </div>
+                            </td>
+                            <div class="modal fade" id="myModal{{ .Id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                            <h4 class="modal-title" id="myModalLabel">删除确认</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            请确认是否删除此条数据？
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                            <form class="col-md-3" role="form" method="post" action="/admin/casts/del">
+                                                <input type="hidden" value="{{ .Id }}" name="Id" />
+                                                <button type="submit" class="btn btn-danger">确认删除</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <!-- /.modal-content -->
+                                </div>
+                                <!-- /.modal-dialog -->
+                            </div>
+                            <!-- /.modal -->
+                        </tr>
+                        {{ end }} {{ end }}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
-
-<!-- <div id="bottom">
-</div> -->
-
 {{template "Admin/footer.html" .}}
