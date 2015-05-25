@@ -37,5 +37,7 @@ func (c App) Login(username, password string) revel.Result {
 }
 
 func (c App) Logout() revel.Result {
-	return c.Render()
+	//Clear session
+	c.Session["user"] = ""
+	return c.Redirect(App.Index)
 }
