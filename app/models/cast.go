@@ -1,7 +1,6 @@
 package models
 
 import (
-	"html/template"
 	"labix.org/v2/mgo/bson"
 )
 
