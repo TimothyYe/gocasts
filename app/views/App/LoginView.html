@@ -55,4 +55,20 @@
         </div>
     </div>
 </div>
+<script language="javascript">
+function refresh_captcha_clicked() {
+    $.ajax({
+        type: "GET",
+        dataType: "json",
+        url: "/captcha",
+        success: function(data) {
+            jQuery("#captcha_id").val(data.id);
+            jQuery("#captcha_img").attr("src", data.imageurl);
+        },
+        error: function(res) {
+            //Do nothing...
+        }
+    });
+}
+</script>
 {{template "footer.html" .}}
