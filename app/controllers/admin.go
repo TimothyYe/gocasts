@@ -14,10 +14,6 @@ func (c Admin) Index() revel.Result {
 	return c.Render()
 }
 
-func (c Admin) Casts() revel.Result {
-	return c.Render()
-}
-
 func (c Admin) Password() revel.Result {
 	return c.Render()
 }
