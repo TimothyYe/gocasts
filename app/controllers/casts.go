@@ -53,7 +53,7 @@ func (c Admin) ModifyCastPage(id string) revel.Result {
 }
 
 func (c Admin) ModifyCast(id, author, authorurl, title, intro, logourl, url, shownotes string) revel.Result {
-	db.C("casts").UpdateId(bson.ObjectIdHex(req.FormValue("id")),
+	c.MongoSession.DB("gocasts").C("casts").UpdateId(bson.ObjectIdHex(id),
 		bson.M{"$set": bson.M{"author": author,
 			"authorurl": authorurl,
 			"title":     title,

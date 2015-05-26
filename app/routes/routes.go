@@ -67,9 +67,25 @@ func (_ tAdmin) ModifyCastPage(
 }
 
 func (_ tAdmin) ModifyCast(
+		id string,
+		author string,
+		authorurl string,
+		title string,
+		intro string,
+		logourl string,
+		url string,
+		shownotes string,
 		) string {
 	args := make(map[string]string)
 	
+	revel.Unbind(args, "id", id)
+	revel.Unbind(args, "author", author)
+	revel.Unbind(args, "authorurl", authorurl)
+	revel.Unbind(args, "title", title)
+	revel.Unbind(args, "intro", intro)
+	revel.Unbind(args, "logourl", logourl)
+	revel.Unbind(args, "url", url)
+	revel.Unbind(args, "shownotes", shownotes)
 	return revel.MainRouter.Reverse("Admin.ModifyCast", args).Url
 }
 
