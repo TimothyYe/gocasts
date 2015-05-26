@@ -65,7 +65,7 @@ func (c Admin) ModifyCast(id, author, authorurl, title, intro, logourl, url, sho
 	return c.Redirect(Admin.Casts)
 }
 
-func (c Admin) RemoveCast() revel.Result {
-
-	return c.Render()
+func (c Admin) RemoveCast(id string) revel.Result {
+	c.MongoSession.DB("gocasts").C("casts").RemoveId(bson.ObjectIdHex(id))
+	return c.Redirect(Admin.Casts)
 }

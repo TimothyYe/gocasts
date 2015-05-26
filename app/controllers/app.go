@@ -20,7 +20,9 @@ func (c App) About() revel.Result {
 }
 
 func (c App) LoginView() revel.Result {
-
+	if c.Session["user"] != "" {
+		return c.Redirect(Admin.Index)
+	}
 	CaptchaId := captcha.NewLen(4)
 	return c.Render(CaptchaId)
 }

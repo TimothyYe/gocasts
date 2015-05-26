@@ -90,9 +90,11 @@ func (_ tAdmin) ModifyCast(
 }
 
 func (_ tAdmin) RemoveCast(
+		id string,
 		) string {
 	args := make(map[string]string)
 	
+	revel.Unbind(args, "id", id)
 	return revel.MainRouter.Reverse("Admin.RemoveCast", args).Url
 }
 
