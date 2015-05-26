@@ -72,6 +72,10 @@ body {
     text-decoration: none
 }
 
+#captcha_img {
+    padding-left: 35px;
+}
+
 #wrapper {
     padding-top: 100px;
 }

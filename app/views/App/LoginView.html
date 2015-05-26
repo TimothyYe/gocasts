@@ -1,4 +1,7 @@
-{{set . "title" "GoCasts - 管理登录"}} {{append . "moreStyles" "/public/css/custom.css"}} {{template "header.html" .}}
+{{set . "title" "GoCasts - 管理登录"}} 
+{{append . "moreStyles" "/public/css/custom.css"}} 
+{{template "header.html" .}}
+
 <div id="content">
     <div class="col-md-8 col-md-offset-2 col-xs-12 container" id="login-content">
         <div class="row">
@@ -8,9 +11,20 @@
                 </div>
             </div>
         </div>
+        {{if .errors}}
+        <div class="alert alert-danger alert-dismissible col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <ul>
+                {{range .errors}}
+                <li> {{.Message}}</li>
+                {{end}}
+            </ul>
+        </div>
+        {{ end }}
         <div class="row">
             <div class="col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 round" id="login-div">
                 <form class="form-horizontal" role="form" method="post" action="/login">
+                    <input type="hidden" name="csrf_token" value="{{ .csrf_token }}" />
                     <div class="form-group form-group-lg">
                         <div class="col-md-12">
                             <input type="email" class="form-control input-lg text-center" id="inputEmail" name="username" placeholder="邮箱地址">
@@ -20,6 +34,16 @@
                         <div class="col-md-12">
                             <input type="password" class="form-control input-lg text-center" id="inputPassword" name="password" placeholder="密码">
                         </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <input class="form-control input-lg text-center" type="text" autocomplete="off" placeholder="验证码" name="captcha_value" id="captcha_value" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <a href="#" onclick="javascript:refresh_captcha_clicked();">
+                            <img class="captcha-img" src="/captcha/img?id={{.CaptchaId}}" alt="验证码" title="点击刷新验证码" id="captcha_img" /></a>
+                        <input id="captcha_id" name="captcha_id" type="hidden" value="{{.CaptchaId}}" />
                     </div>
                     <div class="form-group">
                         <div class="col-md-12 col-xs-12">

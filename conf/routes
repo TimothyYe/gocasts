@@ -18,6 +18,9 @@ POST    /admin/casts/add                        Admin.AddCast
 
 GET     /admin/password 						Admin.Password
 
+# For captcha
+GET   /captcha/img					  Captcha.GetCaptchaImage
+GET   /captcha 						  Captcha.GetCaptcha
 
 # Ignore favicon requests
 GET     /favicon.ico                            404

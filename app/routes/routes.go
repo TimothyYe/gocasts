@@ -107,11 +107,15 @@ func (_ tApp) LoginView(
 func (_ tApp) Login(
 		username string,
 		password string,
+		captcha_id string,
+		captcha_value string,
 		) string {
 	args := make(map[string]string)
 	
 	revel.Unbind(args, "username", username)
 	revel.Unbind(args, "password", password)
+	revel.Unbind(args, "captcha_id", captcha_id)
+	revel.Unbind(args, "captcha_value", captcha_value)
 	return revel.MainRouter.Reverse("App.Login", args).Url
 }
 
