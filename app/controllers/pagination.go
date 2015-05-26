@@ -138,17 +138,12 @@ func (p *Paginator) HasPages() bool {
 	return p.PageNums() > 1
 }
 
-func (p *Paginator) Init(per int, nums int) {
-	if per <= 0 {
-		per = 10
-	}
-	p.PerPageNums = per
-	p.SetNums(nums)
-}
-
-func NewPaginator(req *http.Request) *Paginator {
+func NewPaginator(req *http.Request, per int, nums int) *Paginator {
 	p := Paginator{}
 	p.Request = req
+
+	p.PerPageNums = per
+	p.SetNums(nums)
 
 	return &p
 }

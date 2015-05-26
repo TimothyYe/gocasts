@@ -8,8 +8,24 @@ import (
 )
 
 func (c Admin) Casts() revel.Result {
+	num, _ := c.MongoSession.DB("gocasts").C("casts").Count()
 
-	return c.Render()
+	pers := 12
+	pager := NewPaginator(c.Request.Request, pers, num)
+
+	casts := []models.Casts{}
+	viewCasts := []models.CastsView{}
+
+	c.MongoSession.DB("gocasts").C("casts").Find(nil).Limit(pers).Skip(pager.Offset()).All(&casts)
+
+	for _, t := range casts {
+		viewCasts = append(viewCasts,
+			models.CastsView{Id: t.Id.Hex(), Author: t.Author, AuthorUrl: t.AuthorUrl,
+				VisitCount: t.VisitCount, Title: t.Title, Intro: t.Intro,
+				ShowNotes: t.ShowNotes, Url: t.Url, LogoUrl: t.LogoUrl, Date: t.Date})
+	}
+
+	return c.Render(viewCasts, pager, num)
 }
 
 func (c Admin) AddCastPage() revel.Result {
