@@ -41,14 +41,28 @@ func (c Admin) AddCast(author, authorurl, title, intro, logourl, url, shownotes 
 	return c.Redirect(Admin.Casts)
 }
 
-func (c Admin) ModifyCastPage() revel.Result {
+func (c Admin) ModifyCastPage(id string) revel.Result {
+	t := models.Casts{}
 
-	return c.Render()
+	c.MongoSession.DB("gocasts").C("casts").FindId(bson.ObjectIdHex(id)).One(&t)
+	cast := models.CastsView{Id: t.Id.Hex(), Author: t.Author, AuthorUrl: t.AuthorUrl,
+		VisitCount: t.VisitCount, Title: t.Title, Intro: t.Intro,
+		ShowNotes: t.ShowNotes, Url: t.Url, LogoUrl: t.LogoUrl, Date: t.Date}
+
+	return c.Render(cast)
 }
 
-func (c Admin) ModifyCast() revel.Result {
+func (c Admin) ModifyCast(id, author, authorurl, title, intro, logourl, url, shownotes string) revel.Result {
+	db.C("casts").UpdateId(bson.ObjectIdHex(req.FormValue("id")),
+		bson.M{"$set": bson.M{"author": author,
+			"authorurl": authorurl,
+			"title":     title,
+			"intro":     intro,
+			"shownotes": shownotes,
+			"url":       url,
+			"logourl":   logourl}})
 
-	return c.Render()
+	return c.Redirect(Admin.Casts)
 }
 
 func (c Admin) RemoveCast() revel.Result {
