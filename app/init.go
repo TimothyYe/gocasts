@@ -1,7 +1,10 @@
 package app
 
-import "github.com/revel/revel"
-import "github.com/jgraham909/revmgo"
+import (
+	"github.com/cbonello/revel-csrf"
+	"github.com/jgraham909/revmgo"
+	"github.com/revel/revel"
+)
 
 func init() {
 	// Filters is the default set of global filters.
@@ -12,6 +15,7 @@ func init() {
 		revel.ParamsFilter,            // Parse parameters into Controller.Params.
 		revel.SessionFilter,           // Restore and write the session cookie.
 		revel.FlashFilter,             // Restore and write the flash cookie.
+		csrf.CSRFFilter,               // CSRF protection
 		revel.ValidationFilter,        // Restore kept validation errors and save new ones from cookie.
 		revel.I18nFilter,              // Resolve the requested language
 		HeaderFilter,                  // Add some security based headers

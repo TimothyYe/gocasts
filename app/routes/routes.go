@@ -8,20 +8,6 @@ type tAdmin struct {}
 var Admin tAdmin
 
 
-func (_ tAdmin) Index(
-		) string {
-	args := make(map[string]string)
-	
-	return revel.MainRouter.Reverse("Admin.Index", args).Url
-}
-
-func (_ tAdmin) Password(
-		) string {
-	args := make(map[string]string)
-	
-	return revel.MainRouter.Reverse("Admin.Password", args).Url
-}
-
 func (_ tAdmin) Casts(
 		) string {
 	args := make(map[string]string)
@@ -37,9 +23,23 @@ func (_ tAdmin) AddCastPage(
 }
 
 func (_ tAdmin) AddCast(
+		author string,
+		authorurl string,
+		title string,
+		intro string,
+		logourl string,
+		url string,
+		shownotes string,
 		) string {
 	args := make(map[string]string)
 	
+	revel.Unbind(args, "author", author)
+	revel.Unbind(args, "authorurl", authorurl)
+	revel.Unbind(args, "title", title)
+	revel.Unbind(args, "intro", intro)
+	revel.Unbind(args, "logourl", logourl)
+	revel.Unbind(args, "url", url)
+	revel.Unbind(args, "shownotes", shownotes)
 	return revel.MainRouter.Reverse("Admin.AddCast", args).Url
 }
 
@@ -62,6 +62,20 @@ func (_ tAdmin) RemoveCast(
 	args := make(map[string]string)
 	
 	return revel.MainRouter.Reverse("Admin.RemoveCast", args).Url
+}
+
+func (_ tAdmin) Index(
+		) string {
+	args := make(map[string]string)
+	
+	return revel.MainRouter.Reverse("Admin.Index", args).Url
+}
+
+func (_ tAdmin) Password(
+		) string {
+	args := make(map[string]string)
+	
+	return revel.MainRouter.Reverse("Admin.Password", args).Url
 }
 
 
@@ -106,6 +120,29 @@ func (_ tApp) Logout(
 	args := make(map[string]string)
 	
 	return revel.MainRouter.Reverse("App.Logout", args).Url
+}
+
+
+type tCaptcha struct {}
+var Captcha tCaptcha
+
+
+func (_ tCaptcha) GetCaptchaImage(
+		id string,
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "id", id)
+	return revel.MainRouter.Reverse("Captcha.GetCaptchaImage", args).Url
+}
+
+func (_ tCaptcha) GetCaptcha(
+		captchaid string,
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "captchaid", captchaid)
+	return revel.MainRouter.Reverse("Captcha.GetCaptcha", args).Url
 }
 
 
