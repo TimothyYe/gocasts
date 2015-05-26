@@ -25,8 +25,8 @@ type CastsView struct {
 	VisitCount int
 	Title      string
 	LogoUrl    string
-	Intro      template.HTML
-	ShowNotes  template.HTML
+	Intro      string
+	ShowNotes  string
 	Url        string
 	Date       string
 }
