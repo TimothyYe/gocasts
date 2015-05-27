@@ -9,6 +9,7 @@ GET     /about									App.About
 GET     /login									App.LoginView
 POST    /login                            		App.Login
 GET     /logout                           		App.Logout
+GET     /casts/:id                              App.ShowCast
 
 GET     /admin									Admin.Index
 
