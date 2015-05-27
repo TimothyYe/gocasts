@@ -10,40 +10,20 @@
 <div id="content">
     <div class="container">
         <div class="row">
+            {{ if .num }} 
+            {{ range .viewCasts }}
             <div class="catCard col-md-4 col-sm-6">
                 <a href="/casts/" target="_blank"><img src="/public/img/go-logo.png" alt="" /></a>
                 <div class="lowerCatCard">
-                    <h3>标题</h3>
-                    <p>介绍介绍介绍</p>
+                    <h3>{{ .Title }}</h3>
+                    <p>{{ .Intro }}</p>
                     <div id="catCardButton" class="button"><a href="/casts/" target="_blank">点击查看</a></div>
                 </div>
             </div>
-            <div class="catCard col-md-4 col-sm-6">
-                <a href="/casts/" target="_blank"><img src="/public/img/go-logo.png" alt="" /></a>
-                <div class="lowerCatCard">
-                    <h3>标题</h3>
-                    <p>介绍介绍介绍</p>
-                    <div id="catCardButton" class="button"><a href="/casts/" target="_blank">点击查看</a></div>
-                </div>
-            </div>
-            </li>
-            <div class="catCard col-md-4 col-sm-6">
-                <a href="/casts/" target="_blank"><img src="/public/img/go-logo.png" alt="" /></a>
-                <div class="lowerCatCard">
-                    <h3>标题</h3>
-                    <p>介绍介绍介绍</p>
-                    <div id="catCardButton" class="button"><a href="/casts/" target="_blank">点击查看</a></div>
-                </div>
-            </div>
-            <div class="catCard col-md-4 col-sm-6">
-                <a href="/casts/" target="_blank"><img src="/public/img/go-logo.png" alt="" /></a>
-                <div class="lowerCatCard">
-                    <h3>标题</h3>
-                    <p>介绍介绍介绍</p>
-                    <div id="catCardButton" class="button"><a href="/casts/" target="_blank">点击查看</a></div>
-                </div>
-            </div>
+            {{ end }}
+            {{ end }}
         </div>
+
     </div>
 </div>
 {{template "footer.html" .}}

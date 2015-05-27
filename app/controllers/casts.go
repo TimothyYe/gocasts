@@ -16,7 +16,7 @@ func (c Admin) Casts() revel.Result {
 	casts := []models.Casts{}
 	viewCasts := []models.CastsView{}
 
-	c.MongoSession.DB("gocasts").C("casts").Find(nil).Limit(pers).Skip(pager.Offset()).All(&casts)
+	c.MongoSession.DB("gocasts").C("casts").Find(nil).Limit(pers).Skip(pager.Offset()).Sort("-Date").All(&casts)
 
 	for _, t := range casts {
 		viewCasts = append(viewCasts,

@@ -4,6 +4,7 @@ import (
 	"github.com/dchest/captcha"
 	"github.com/jgraham909/revmgo"
 	"github.com/revel/revel"
+	"github.com/timothyye/gocasts/app/models"
 )
 
 type App struct {
@@ -12,7 +13,24 @@ type App struct {
 }
 
 func (c App) Index() revel.Result {
-	return c.Render()
+	num, _ := c.MongoSession.DB("gocasts").C("casts").Count()
+
+	pers := 9
+	pager := NewPaginator(c.Request.Request, pers, num)
+
+	casts := []models.Casts{}
+	viewCasts := []models.CastsView{}
+
+	c.MongoSession.DB("gocasts").C("casts").Find(nil).Limit(pers).Skip(pager.Offset()).Sort("-Date").All(&casts)
+
+	for _, t := range casts {
+		viewCasts = append(viewCasts,
+			models.CastsView{Id: t.Id.Hex(), Author: t.Author, AuthorUrl: t.AuthorUrl,
+				VisitCount: t.VisitCount, Title: t.Title, Intro: t.Intro,
+				ShowNotes: t.ShowNotes, Url: t.Url, LogoUrl: t.LogoUrl, Date: t.Date})
+	}
+
+	return c.Render(viewCasts, pager, num)
 }
 
 func (c App) About() revel.Result {

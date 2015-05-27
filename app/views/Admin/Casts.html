@@ -18,7 +18,8 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {{ if .num }} {{ range .viewCasts }}
+                        {{ if .num }} 
+                        {{ range .viewCasts }}
                         <tr>
                             <td>{{ .Title }}</td>
                             <td>{{ .Author }}</td>
@@ -57,7 +58,8 @@
                             </div>
                             <!-- /.modal -->
                         </tr>
-                        {{ end }} {{ end }}
+                        {{ end }} 
+                        {{ end }}
                     </tbody>
                 </table>
             </div>
