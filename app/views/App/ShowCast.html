@@ -20,7 +20,6 @@
                     </ul>
                     <div class="tab-content" id="show-notes">
                         <div class="tab-pane active" id="intro">
-                            {{ .Intro }}
                         </div>
                         <div class="tab-pane" id="resource">
                         </div>
@@ -42,7 +41,8 @@
                             ds.charset = 'UTF-8';
                             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
                         })();
-
+                        document.getElementById('intro').innerHTML =
+                            marked('{{ .Intro }}');
                         document.getElementById('resource').innerHTML =
                             marked('{{ .ShowNotes }}');
                         </script>
