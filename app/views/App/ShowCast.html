@@ -13,7 +13,11 @@
                         <source src="{{ .Url }}" type='video/mp4'>
                     </video>
                     <div class="m-t m-b">
-                        <h4>{{ .Title }}     [Author: <a href="{{ .AuthorUrl }}" target="_blank">{{.Author}}</a>]</h4></div>
+                        <h4>{{ .Title }}</h4>
+                        <p>
+                        Created by <a href="{{ .AuthorUrl }}" target="_blank">{{.Author}}</a> @ {{ .Date }}
+                        </p>
+                    </div>
                     <ul id="mytab" class="nav nav-tabs m-t">
                         <li class="active"><a href="#intro" data-toggle="tab">介绍</a></li>
                         <li><a href="#resource" data-toggle="tab">相关资源</a></li>
