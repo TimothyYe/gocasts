@@ -19,7 +19,7 @@ func (c App) ShowCast(id string) revel.Result {
 	c.MongoSession.DB("gocasts").C("casts").FindId(bson.ObjectIdHex(id)).One(&t)
 	cast := models.CastsView{Id: t.Id.Hex(), Author: t.Author, AuthorUrl: t.AuthorUrl,
 		VisitCount: t.VisitCount, Title: t.Title, Intro: t.Intro,
-		ShowNotes: t.ShowNotes, Url: t.Url, LogoUrl: t.LogoUrl, Date: t.Date}
+		ShowNotes: t.ShowNotes, Url: t.Url, LogoUrl: t.LogoUrl, Date: t.Date, Tags: t.Tags}
 
 	return c.Render(cast)
 }

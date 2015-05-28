@@ -17,6 +17,11 @@
                         <p>
                         Created by <a href="{{ .AuthorUrl }}" target="_blank">{{.Author}}</a> @ {{ .Date }}
                         </p>
+                        <p>
+                            {{ range parseTags .Tags}}
+                            <span class="label label-primary">{{ . }}</span>
+                            {{ end }}
+                        </p>
                     </div>
                     <ul id="mytab" class="nav nav-tabs m-t">
                         <li class="active"><a href="#intro" data-toggle="tab">介绍</a></li>
