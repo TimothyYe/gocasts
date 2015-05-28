@@ -81,14 +81,16 @@ body {
     padding-top: 100px;
 }
 
-#casts_form{
+#casts_form {
     margin-bottom: 100px;
 }
 
 #show-notes {
     background-color: #FFFFFF;
     padding-left: 10px;
-    padding-top: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 10px;
 }
 
 #footer {
