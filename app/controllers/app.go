@@ -45,6 +45,10 @@ func (c App) Index() revel.Result {
 	return c.Render(viewCasts, pager, num)
 }
 
+func (c App) CastsList() revel.Result {
+	return nil
+}
+
 func (c App) About() revel.Result {
 	return c.Render()
 }
