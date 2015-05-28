@@ -22,7 +22,7 @@ func (c Admin) Casts() revel.Result {
 		viewCasts = append(viewCasts,
 			models.CastsView{Id: t.Id.Hex(), Author: t.Author, AuthorUrl: t.AuthorUrl,
 				VisitCount: t.VisitCount, Title: t.Title, Intro: t.Intro,
-				ShowNotes: t.ShowNotes, Url: t.Url, LogoUrl: t.LogoUrl, Date: t.Date})
+				ShowNotes: t.ShowNotes, Url: t.Url, LogoUrl: t.LogoUrl, Date: t.Date, Tags: t.Tags})
 	}
 
 	return c.Render(viewCasts, pager, num)
@@ -32,10 +32,10 @@ func (c Admin) AddCastPage() revel.Result {
 	return c.Render()
 }
 
-func (c Admin) AddCast(author, authorurl, title, intro, logourl, url, shownotes string) revel.Result {
+func (c Admin) AddCast(author, authorurl, title, tags, intro, logourl, url, shownotes string) revel.Result {
 	cast := models.Casts{Id: bson.NewObjectId(), Author: author, AuthorUrl: authorurl,
 		VisitCount: 0, Title: title, Intro: intro, ShowNotes: shownotes,
-		Url: url, LogoUrl: logourl, Date: time.Now().Format("2006-01-02 15:04:05")}
+		Url: url, LogoUrl: logourl, Date: time.Now().Format("2006-01-02 15:04:05"), Tags: tags}
 	c.MongoSession.DB("gocasts").C("casts").Insert(cast)
 
 	return c.Redirect(Admin.Casts)
@@ -47,12 +47,12 @@ func (c Admin) ModifyCastPage(id string) revel.Result {
 	c.MongoSession.DB("gocasts").C("casts").FindId(bson.ObjectIdHex(id)).One(&t)
 	cast := models.CastsView{Id: t.Id.Hex(), Author: t.Author, AuthorUrl: t.AuthorUrl,
 		VisitCount: t.VisitCount, Title: t.Title, Intro: t.Intro,
-		ShowNotes: t.ShowNotes, Url: t.Url, LogoUrl: t.LogoUrl, Date: t.Date}
+		ShowNotes: t.ShowNotes, Url: t.Url, LogoUrl: t.LogoUrl, Date: t.Date, Tags: t.Tags}
 
 	return c.Render(cast)
 }
 
-func (c Admin) ModifyCast(id, author, authorurl, title, intro, logourl, url, shownotes string) revel.Result {
+func (c Admin) ModifyCast(id, author, authorurl, title, tags, intro, logourl, url, shownotes string) revel.Result {
 	c.MongoSession.DB("gocasts").C("casts").UpdateId(bson.ObjectIdHex(id),
 		bson.M{"$set": bson.M{"author": author,
 			"authorurl": authorurl,
@@ -60,7 +60,8 @@ func (c Admin) ModifyCast(id, author, authorurl, title, intro, logourl, url, sho
 			"intro":     intro,
 			"shownotes": shownotes,
 			"url":       url,
-			"logourl":   logourl}})
+			"logourl":   logourl,
+			"tags":      tags}})
 
 	return c.Redirect(Admin.Casts)
 }

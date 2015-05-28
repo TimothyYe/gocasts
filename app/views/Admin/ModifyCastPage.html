@@ -35,6 +35,13 @@
 
         <div class="form-group">
           <div class="col-md-12">
+            <label for="title">标签</label>
+            <input type="text" class="form-control" id="tags" name="tags" placeholder="填入标签，逗号分割" value="{{ .cast.Tags }}">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-md-12">
             <label for="intro">简介</label>
              <textarea class="form-control" placeholder="填入简介" id="intro" name="intro" rows="6">{{ .cast.Intro }}</textarea>
           </div>
@@ -60,15 +67,6 @@
             <textarea class="form-control" placeholder="输入相关资料" id="shownotes" name="shownotes" rows="6">{{ .cast.ShowNotes }}</textarea>
           </div>
         </div>
-
-        <script type="text/javascript">
-        var editor = new Simditor({
-          textarea: $('#intro')
-        });
-         var editor = new Simditor({
-          textarea: $('#shownotes')
-        });
-        </script>
 
         <button type="submit" class="btn btn-success">更新</button>
       </form>

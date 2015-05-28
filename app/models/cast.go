@@ -15,6 +15,7 @@ type Casts struct {
 	ShowNotes  string
 	Url        string
 	Date       string
+	Tags       string
 }
 
 type CastsView struct {
@@ -28,4 +29,5 @@ type CastsView struct {
 	ShowNotes  string
 	Url        string
 	Date       string
+	Tags       string
 }
