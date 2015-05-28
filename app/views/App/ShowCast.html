@@ -19,7 +19,7 @@
                         </p>
                         <p>
                             {{ range parseTags .Tags}}
-                            <span class="label label-primary">{{ . }}</span>
+                            <a href="/tags/{{ . }}"><span class="label label-success">{{ . }}</span></a>
                             {{ end }}
                         </p>
                     </div>
