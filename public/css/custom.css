@@ -85,6 +85,12 @@ body {
     margin-bottom: 100px;
 }
 
+#show-notes {
+    background-color: #FFFFFF;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
 #footer {
     background-color: #B4DEBE;
 }
