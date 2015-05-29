@@ -23,6 +23,7 @@ POST    /admin/casts/modify                     Admin.ModifyCast
 POST    /admin/casts/remove/:id 				Admin.RemoveCast
 
 GET     /admin/password 						Admin.Password
+POST    /admin/password/update  				Admin.UpdatePassword
 
 # For captcha
 GET   /captcha/img					  Captcha.GetCaptchaImage
