@@ -4,32 +4,34 @@ package routes
 import "github.com/revel/revel"
 
 
-type tCaptcha struct {}
-var Captcha tCaptcha
-
-
-func (_ tCaptcha) GetCaptchaImage(
-		id string,
-		) string {
-	args := make(map[string]string)
-	
-	revel.Unbind(args, "id", id)
-	return revel.MainRouter.Reverse("Captcha.GetCaptchaImage", args).Url
-}
-
-func (_ tCaptcha) GetCaptcha(
-		captchaid string,
-		) string {
-	args := make(map[string]string)
-	
-	revel.Unbind(args, "captchaid", captchaid)
-	return revel.MainRouter.Reverse("Captcha.GetCaptcha", args).Url
-}
-
-
 type tAdmin struct {}
 var Admin tAdmin
 
+
+func (_ tAdmin) Index(
+		) string {
+	args := make(map[string]string)
+	
+	return revel.MainRouter.Reverse("Admin.Index", args).Url
+}
+
+func (_ tAdmin) Password(
+		) string {
+	args := make(map[string]string)
+	
+	return revel.MainRouter.Reverse("Admin.Password", args).Url
+}
+
+func (_ tAdmin) UpdatePassword(
+		password string,
+		verify string,
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "password", password)
+	revel.Unbind(args, "verify", verify)
+	return revel.MainRouter.Reverse("Admin.UpdatePassword", args).Url
+}
 
 func (_ tAdmin) Casts(
 		) string {
@@ -111,31 +113,6 @@ func (_ tAdmin) RemoveCast(
 	return revel.MainRouter.Reverse("Admin.RemoveCast", args).Url
 }
 
-func (_ tAdmin) Index(
-		) string {
-	args := make(map[string]string)
-	
-	return revel.MainRouter.Reverse("Admin.Index", args).Url
-}
-
-func (_ tAdmin) Password(
-		) string {
-	args := make(map[string]string)
-	
-	return revel.MainRouter.Reverse("Admin.Password", args).Url
-}
-
-func (_ tAdmin) UpdatePassword(
-		password string,
-		verify string,
-		) string {
-	args := make(map[string]string)
-	
-	revel.Unbind(args, "password", password)
-	revel.Unbind(args, "verify", verify)
-	return revel.MainRouter.Reverse("Admin.UpdatePassword", args).Url
-}
-
 
 type tApp struct {}
 var App tApp
@@ -207,6 +184,29 @@ func (_ tApp) Logout(
 	args := make(map[string]string)
 	
 	return revel.MainRouter.Reverse("App.Logout", args).Url
+}
+
+
+type tCaptcha struct {}
+var Captcha tCaptcha
+
+
+func (_ tCaptcha) GetCaptchaImage(
+		id string,
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "id", id)
+	return revel.MainRouter.Reverse("Captcha.GetCaptchaImage", args).Url
+}
+
+func (_ tCaptcha) GetCaptcha(
+		captchaid string,
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "captchaid", captchaid)
+	return revel.MainRouter.Reverse("Captcha.GetCaptcha", args).Url
 }
 
 

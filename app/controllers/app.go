@@ -1,6 +1,7 @@
 package controllers
 
 import (
+	"code.google.com/p/go.crypto/bcrypt"
 	"github.com/dchest/captcha"
 	"github.com/jgraham909/revmgo"
 	"github.com/revel/revel"
@@ -97,7 +98,10 @@ func (c App) Login(username, password, captcha_id, captcha_value string) revel.R
 		return c.Redirect(App.LoginView)
 	}
 
-	if username == "admin@abc.com" && password == "admin888" {
+	id := models.Identity{}
+	c.MongoSession.DB("gocasts").C("id").Find(bson.M{"email": "admin@gocasts.net"}).One(&id)
+
+	if username == "admin@gocasts.net" && bcrypt.CompareHashAndPassword(id.Password, []byte(password)) == nil {
 		c.Session["user"] = "admin"
 		return c.Redirect(Admin.Index)
 	}
