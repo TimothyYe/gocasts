@@ -93,6 +93,11 @@ body {
     padding-bottom: 10px;
 }
 
+#comments{
+    margin-top: 30px;
+    margin-bottom: 100px;
+}
+
 #footer {
     background-color: #B4DEBE;
 }
