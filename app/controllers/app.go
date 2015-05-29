@@ -41,7 +41,7 @@ func (c App) SearchTag(tag string) revel.Result {
 	pers := 12
 	pager := NewPaginator(c.Request.Request, pers, num)
 
-	return c.Render(viewCasts, pager, num)
+	return c.Render(viewCasts, pager, num, tag)
 }
 
 func (c App) Index() revel.Result {

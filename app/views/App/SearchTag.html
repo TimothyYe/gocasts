@@ -4,22 +4,25 @@
 {{template "header.html" .}}
 
 <div id="content">
-    <div class="container">
-        <div class="row">
-            {{ if .num }} 
-            {{ range .viewCasts }}
-            <div class="catCard col-md-4 col-sm-6">
-                <a href="/casts/{{ .Id }}" target="_blank"><img src="/public/img/go-logo.png" alt="" /></a>
-                <div class="lowerCatCard">
-                    <h3>{{ .Title }}</h3>
-                    <p>{{ .Intro }}</p>
-                    <div id="catCardButton" class="button"><a href="/casts/{{ .Id }}" target="_blank">点击查看</a></div>
+    <div id="wrapper">
+        <div class="container">
+            <div class="row">
+                <ol class="breadcrumb">
+                    <li>标签搜索</li>
+                    <li class="active">{{ .tag }}</li>
+                </ol>
+                {{ if .num }} {{ range .viewCasts }}
+                <div class="catCard col-md-4 col-sm-6">
+                    <a href="/casts/{{ .Id }}" target="_blank"><img src="/public/img/go-logo.png" alt="" /></a>
+                    <div class="lowerCatCard">
+                        <h3>{{ .Title }}</h3>
+                        <p>{{ .Intro }}</p>
+                        <div id="catCardButton" class="button"><a href="/casts/{{ .Id }}" target="_blank">点击查看</a></div>
+                    </div>
                 </div>
+                {{ end }} {{ end }}
             </div>
-            {{ end }}
-            {{ end }}
         </div>
-
     </div>
 </div>
 {{template "footer.html" .}}
