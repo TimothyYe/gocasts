@@ -26,8 +26,22 @@ func (c App) ShowCast(id string) revel.Result {
 
 func (c App) SearchTag(tag string) revel.Result {
 	casts := []models.Casts{}
-	c.MongoSession.DB("gocasts").C("casts").Find(bson.M{"tags": "/" + tag + "/"}).Sort("-date").All(&casts)
-	return c.Render(casts)
+	viewCasts := []models.CastsView{}
+
+	c.MongoSession.DB("gocasts").C("casts").Find(bson.M{"tags": bson.RegEx{tag, ""}}).Sort("-date").All(&casts)
+
+	for _, t := range casts {
+		viewCasts = append(viewCasts,
+			models.CastsView{Id: t.Id.Hex(), Author: t.Author, AuthorUrl: t.AuthorUrl,
+				VisitCount: t.VisitCount, Title: t.Title, Intro: t.Intro,
+				ShowNotes: t.ShowNotes, Url: t.Url, LogoUrl: t.LogoUrl, Date: t.Date, Tags: t.Tags})
+	}
+
+	num := len(viewCasts)
+	pers := 12
+	pager := NewPaginator(c.Request.Request, pers, num)
+
+	return c.Render(viewCasts, pager, num)
 }
 
 func (c App) Index() revel.Result {
