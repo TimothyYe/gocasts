@@ -24,6 +24,12 @@ func (c App) ShowCast(id string) revel.Result {
 	return c.Render(cast)
 }
 
+func (c App) SearchTag(tag string) revel.Result {
+	// casts := []models.Casts{}
+	// c.MongoSession.DB("gocasts").C("casts").FindId(bson.ObjectIdHex(id)).Sort("-Date").All(&casts)
+	return nil
+}
+
 func (c App) Index() revel.Result {
 	num, _ := c.MongoSession.DB("gocasts").C("casts").Count()
 
@@ -33,7 +39,7 @@ func (c App) Index() revel.Result {
 	casts := []models.Casts{}
 	viewCasts := []models.CastsView{}
 
-	c.MongoSession.DB("gocasts").C("casts").Find(nil).Limit(pers).Skip(pager.Offset()).Sort("-Date").All(&casts)
+	c.MongoSession.DB("gocasts").C("casts").Find(nil).Limit(pers).Skip(pager.Offset()).Sort("-date").All(&casts)
 
 	for _, t := range casts {
 		viewCasts = append(viewCasts,

@@ -11,6 +11,7 @@ POST    /login                            		App.Login
 GET     /logout                           		App.Logout
 GET     /casts/:id                              App.ShowCast
 GET     /casts 									App.CastsList
+GET     /tags/:tag                              App.SearchTag
 
 GET     /admin									Admin.Index
 
