@@ -48,7 +48,7 @@ func (c App) SearchTag(tag string) revel.Result {
 func (c App) Index() revel.Result {
 	num, _ := c.MongoSession.DB("gocasts").C("casts").Count()
 
-	pers := 9
+	pers := 6
 	pager := NewPaginator(c.Request.Request, pers, num)
 
 	casts := []models.Casts{}
