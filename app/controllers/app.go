@@ -25,9 +25,9 @@ func (c App) ShowCast(id string) revel.Result {
 }
 
 func (c App) SearchTag(tag string) revel.Result {
-	// casts := []models.Casts{}
-	// c.MongoSession.DB("gocasts").C("casts").FindId(bson.ObjectIdHex(id)).Sort("-Date").All(&casts)
-	return nil
+	casts := []models.Casts{}
+	c.MongoSession.DB("gocasts").C("casts").Find(bson.M{"tags": "/" + tag + "/"}).Sort("-date").All(&casts)
+	return c.Render(casts)
 }
 
 func (c App) Index() revel.Result {

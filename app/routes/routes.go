@@ -4,6 +4,105 @@ package routes
 import "github.com/revel/revel"
 
 
+type tAdmin struct {}
+var Admin tAdmin
+
+
+func (_ tAdmin) Index(
+		) string {
+	args := make(map[string]string)
+	
+	return revel.MainRouter.Reverse("Admin.Index", args).Url
+}
+
+func (_ tAdmin) Password(
+		) string {
+	args := make(map[string]string)
+	
+	return revel.MainRouter.Reverse("Admin.Password", args).Url
+}
+
+func (_ tAdmin) Casts(
+		) string {
+	args := make(map[string]string)
+	
+	return revel.MainRouter.Reverse("Admin.Casts", args).Url
+}
+
+func (_ tAdmin) AddCastPage(
+		) string {
+	args := make(map[string]string)
+	
+	return revel.MainRouter.Reverse("Admin.AddCastPage", args).Url
+}
+
+func (_ tAdmin) AddCast(
+		author string,
+		authorurl string,
+		title string,
+		tags string,
+		intro string,
+		logourl string,
+		url string,
+		shownotes string,
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "author", author)
+	revel.Unbind(args, "authorurl", authorurl)
+	revel.Unbind(args, "title", title)
+	revel.Unbind(args, "tags", tags)
+	revel.Unbind(args, "intro", intro)
+	revel.Unbind(args, "logourl", logourl)
+	revel.Unbind(args, "url", url)
+	revel.Unbind(args, "shownotes", shownotes)
+	return revel.MainRouter.Reverse("Admin.AddCast", args).Url
+}
+
+func (_ tAdmin) ModifyCastPage(
+		id string,
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "id", id)
+	return revel.MainRouter.Reverse("Admin.ModifyCastPage", args).Url
+}
+
+func (_ tAdmin) ModifyCast(
+		id string,
+		author string,
+		authorurl string,
+		title string,
+		tags string,
+		intro string,
+		logourl string,
+		url string,
+		shownotes string,
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "id", id)
+	revel.Unbind(args, "author", author)
+	revel.Unbind(args, "authorurl", authorurl)
+	revel.Unbind(args, "title", title)
+	revel.Unbind(args, "tags", tags)
+	revel.Unbind(args, "intro", intro)
+	revel.Unbind(args, "logourl", logourl)
+	revel.Unbind(args, "url", url)
+	revel.Unbind(args, "shownotes", shownotes)
+	return revel.MainRouter.Reverse("Admin.ModifyCast", args).Url
+}
+
+func (_ tAdmin) RemoveCast(
+		id string,
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "id", id)
+	return revel.MainRouter.Reverse("Admin.RemoveCast", args).Url
+}
+
+
 type tApp struct {}
 var App tApp
 
@@ -97,105 +196,6 @@ func (_ tCaptcha) GetCaptcha(
 	
 	revel.Unbind(args, "captchaid", captchaid)
 	return revel.MainRouter.Reverse("Captcha.GetCaptcha", args).Url
-}
-
-
-type tAdmin struct {}
-var Admin tAdmin
-
-
-func (_ tAdmin) Casts(
-		) string {
-	args := make(map[string]string)
-	
-	return revel.MainRouter.Reverse("Admin.Casts", args).Url
-}
-
-func (_ tAdmin) AddCastPage(
-		) string {
-	args := make(map[string]string)
-	
-	return revel.MainRouter.Reverse("Admin.AddCastPage", args).Url
-}
-
-func (_ tAdmin) AddCast(
-		author string,
-		authorurl string,
-		title string,
-		tags string,
-		intro string,
-		logourl string,
-		url string,
-		shownotes string,
-		) string {
-	args := make(map[string]string)
-	
-	revel.Unbind(args, "author", author)
-	revel.Unbind(args, "authorurl", authorurl)
-	revel.Unbind(args, "title", title)
-	revel.Unbind(args, "tags", tags)
-	revel.Unbind(args, "intro", intro)
-	revel.Unbind(args, "logourl", logourl)
-	revel.Unbind(args, "url", url)
-	revel.Unbind(args, "shownotes", shownotes)
-	return revel.MainRouter.Reverse("Admin.AddCast", args).Url
-}
-
-func (_ tAdmin) ModifyCastPage(
-		id string,
-		) string {
-	args := make(map[string]string)
-	
-	revel.Unbind(args, "id", id)
-	return revel.MainRouter.Reverse("Admin.ModifyCastPage", args).Url
-}
-
-func (_ tAdmin) ModifyCast(
-		id string,
-		author string,
-		authorurl string,
-		title string,
-		tags string,
-		intro string,
-		logourl string,
-		url string,
-		shownotes string,
-		) string {
-	args := make(map[string]string)
-	
-	revel.Unbind(args, "id", id)
-	revel.Unbind(args, "author", author)
-	revel.Unbind(args, "authorurl", authorurl)
-	revel.Unbind(args, "title", title)
-	revel.Unbind(args, "tags", tags)
-	revel.Unbind(args, "intro", intro)
-	revel.Unbind(args, "logourl", logourl)
-	revel.Unbind(args, "url", url)
-	revel.Unbind(args, "shownotes", shownotes)
-	return revel.MainRouter.Reverse("Admin.ModifyCast", args).Url
-}
-
-func (_ tAdmin) RemoveCast(
-		id string,
-		) string {
-	args := make(map[string]string)
-	
-	revel.Unbind(args, "id", id)
-	return revel.MainRouter.Reverse("Admin.RemoveCast", args).Url
-}
-
-func (_ tAdmin) Index(
-		) string {
-	args := make(map[string]string)
-	
-	return revel.MainRouter.Reverse("Admin.Index", args).Url
-}
-
-func (_ tAdmin) Password(
-		) string {
-	args := make(map[string]string)
-	
-	return revel.MainRouter.Reverse("Admin.Password", args).Url
 }
 
 
