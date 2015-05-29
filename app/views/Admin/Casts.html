@@ -7,7 +7,7 @@
         <div class="container">
             <div class="row">
                 <a href="/admin/casts/add">
-                  <button class="btn btn-success">新增</button>
+                    <button class="btn btn-success">新增</button>
                 </a>
                 <table class="table table-striped col-md-12">
                     <thead>
@@ -18,8 +18,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {{ if .num }} 
-                        {{ range .viewCasts }}
+                        {{ if .num }} {{ range .viewCasts }}
                         <tr>
                             <td>{{ .Title }}</td>
                             <td>{{ .Author }}</td>
@@ -58,38 +57,33 @@
                             </div>
                             <!-- /.modal -->
                         </tr>
-                        {{ end }} 
-                        {{ end }}
+                        {{ end }} {{ end }}
                     </tbody>
                 </table>
             </div>
             <div class="row">
-                <div class="m-b-xl">
-                    {{if gt .pager.PageNums 1}}
-                    <ul class="pagination pagination-sm">
-                        {{if .pager.HasPrev}}
-                        <li><a href="{{.pager.PageLinkFirst}}">第一页</a></li>
-                        <li><a href="{{.pager.PageLinkPrev}}">&lt;</a></li>
-                        {{else}}
-                        <li class="disabled"><a>第一页</a></li>
-                        <li class="disabled"><a>&lt;</a></li>
-                        {{end}}
-                        {{range $index, $page := .pager.Pages}}
-                        <li{{if $.pager.IsActive .}} class="active"{{end}}>
-                        <a href="{{$.pager.PageLink $page}}">{{$page}}</a>
-                    </li>
-                    {{end}}
-                    {{if .pager.HasNext}}
-                    <li><a href="{{.pager.PageLinkNext}}">&gt;</a></li>
-                    <li><a href="{{.pager.PageLinkLast}}">最后一页</a></li>
+                {{if gt .pager.PageNums 1}}
+                <ul class="pagination pagination-sm">
+                    {{if .pager.HasPrev}}
+                    <li><a href="{{.pager.PageLinkFirst}}">第一页</a></li>
+                    <li><a href="{{.pager.PageLinkPrev}}">&lt;</a></li>
                     {{else}}
-                    <li class="disabled"><a>&gt;</a></li>
-                    <li class="disabled"><a>最后一页</a></li>
-                    {{end}}
+                    <li class="disabled"><a>第一页</a></li>
+                    <li class="disabled"><a>&lt;</a></li>
+                    {{end}} {{range $index, $page := .pager.Pages}}
+                    <li{{if $.pager.IsActive .}} class="active" {{end}}>
+                        <a href="{{$.pager.PageLink $page}}">{{$page}}</a>
+                        </li>
+                        {{end}} {{if .pager.HasNext}}
+                        <li><a href="{{.pager.PageLinkNext}}">&gt;</a></li>
+                        <li><a href="{{.pager.PageLinkLast}}">最后一页</a></li>
+                        {{else}}
+                        <li class="disabled"><a>&gt;</a></li>
+                        <li class="disabled"><a>最后一页</a></li>
+                        {{end}}
                 </ul>
                 {{end}}
             </div>
-        </div>
         </div>
     </div>
 </div>
