@@ -78,6 +78,10 @@ body {
     padding-top: 100px;
 }
 
+#tags a{
+    text-decoration: none
+}
+
 #casts_form {
     margin-bottom: 100px;
 }

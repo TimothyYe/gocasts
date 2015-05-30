@@ -12,18 +12,18 @@
                     <video class="video-js vjs-default-skin" controls preload="auto" width="750" height="483" data-setup="{}">
                         <source src="{{ .Url }}" type='video/mp4'>
                     </video>
-                    <div class="m-t m-b">
+                    <div>
                         <h3>{{ .Title }}</h3>
                         <p>
                         Created by <a href="{{ .AuthorUrl }}" target="_blank">{{.Author}}</a> @ {{ .Date }}
                         </p>
-                        <p>
+                        <p id="tags">
                             {{ range parseTags .Tags}}
                             <a href="/tags/{{ . }}"><span class="label label-success">{{ . }}</span></a>
                             {{ end }}
                         </p>
                     </div>
-                    <ul id="mytab" class="nav nav-tabs m-t">
+                    <ul id="mytab" class="nav nav-tabs">
                         <li class="active"><a href="#intro" data-toggle="tab">介绍</a></li>
                         <li><a href="#resource" data-toggle="tab">相关资源</a></li>
                     </ul>
