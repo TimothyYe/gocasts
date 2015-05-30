@@ -74,10 +74,6 @@ body {
     text-decoration: none
 }
 
-#captcha_img {
-    padding-left: 35px;
-}
-
 #wrapper {
     padding-top: 100px;
 }
@@ -111,10 +107,19 @@ body {
     #jumbotron h1 {
         font-size: 60px;
     }
+    #captcha_img {
+        width: 100%;
+    }
     #jumbotron img {
         width: 300px;
     }
     #login-title h1 {
         font-size: 60px;
+    }
+}
+
+@media (max-width: 768px) {
+    #captcha_img {
+        width: 100%;
     }
 }
