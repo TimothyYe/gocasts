@@ -1,10 +1,21 @@
-{{set . "title" "GoCasts - 管理登录"}} 
+{{set . "title" "GoCasts - About"}} 
 {{append . "moreStyles" "/public/css/custom.css"}} 
 {{template "header.html" .}}
 
 <div id="content">
-    <div class="col-md-8 col-md-offset-2 col-xs-12">
-        
-    </div>  
+    <div id="wrapper">
+        <div class="container">
+            <div class="row">
+                <h3>关于本站</h3>
+                <p>Gocasts是Go语言相关的视频播客网站，建立此网站的目的是帮助更多的程序员更快更方便的了解和掌握Go语言的开发技巧。我们尽量用长度控制在10分钟以内的简短视频，为你分享Go开发方面的知识与技巧。</p>
+                <h3>联系站长</h3>
+                <p>如果你有有兴趣的内容和话题，欢迎联系站长，我们将针对你的建议制作相关视频播客。站长邮箱: yexiaozhou2003 AT gmail.com</p>
+                <h3>源代码</h3>
+                <p>
+                    本站基于Go的Revel框架制作，所有的源代码开源。 如果你对本站的源码感兴趣，可以在Github上下载: <a href="https://github.com/timothyye/gocasts" target="_blank">https://github.com/timothyye/gocasts</a> 同时欢迎大家贡献代码。
+                </p>
+            </div>
+        </div>
+    </div>
 </div>
 {{template "footer.html" .}}
