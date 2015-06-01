@@ -38,7 +38,7 @@ body {
 
 #jumbotron h1 {
     color: #FFFFFF;
-    font-size: 80px;
+    font-size: 100px;
     font-weight: 700;
     margin-top: 14px;
     margin-bottom: 10px;
@@ -74,12 +74,12 @@ body {
     text-decoration: none
 }
 
-#captcha_img {
-    padding-left: 35px;
-}
-
 #wrapper {
     padding-top: 100px;
+}
+
+#tags a{
+    text-decoration: none
 }
 
 #casts_form {
@@ -111,10 +111,19 @@ body {
     #jumbotron h1 {
         font-size: 60px;
     }
+    #captcha_img {
+        width: 100%;
+    }
     #jumbotron img {
         width: 300px;
     }
     #login-title h1 {
         font-size: 60px;
+    }
+}
+
+@media (max-width: 768px) {
+    #captcha_img {
+        width: 100%;
     }
 }

@@ -5,7 +5,7 @@
 <div id="content">
     <div class="col-md-8 col-md-offset-2 col-xs-12 container" id="login-content">
         <div class="row">
-            <div class="col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4" id="login-title">
+            <div id="login-title">
                 <div class="text-center">
                     <a href="/"><h1>Go<span>Casts</span></h1></a>
                 </div>
@@ -41,9 +41,11 @@
                         </div>
                     </div>
                     <div class="form-group">
+                        <div class="col-md-12">
                         <a href="#" onclick="javascript:refresh_captcha_clicked();">
                             <img class="captcha-img" src="/captcha/img?id={{.CaptchaId}}" alt="验证码" title="点击刷新验证码" id="captcha_img" /></a>
                         <input id="captcha_id" name="captcha_id" type="hidden" value="{{.CaptchaId}}" />
+                        </div>
                     </div>
                     <div class="form-group">
                         <div class="col-md-12 col-xs-12">
