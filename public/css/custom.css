@@ -100,6 +100,30 @@ body {
     padding-bottom: 10px;
 }
 
+.castItem {
+    margin: 10px 0px;
+    background-color: #FFFFFF;
+    padding: 10px 5px;
+}
+
+.castTitle {
+}
+
+.castTitle img {
+    height: 180px;
+}
+
+.castContent {
+    padding: 10px 5px;
+}
+
+.castContent h3 {
+    color: #77CCA4;
+    font-weight: 700;
+    font-size: 30px;
+    margin: 5px 0px;
+}
+
 #comments{
     margin-top: 30px;
     margin-bottom: 100px;
