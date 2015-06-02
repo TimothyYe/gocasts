@@ -81,7 +81,7 @@ func (c App) CastsList() revel.Result {
 		viewCasts = append(viewCasts,
 			models.CastsView{Id: t.Id.Hex(), Author: t.Author, AuthorUrl: t.AuthorUrl,
 				VisitCount: t.VisitCount, Title: t.Title, Intro: t.Intro,
-				ShowNotes: t.ShowNotes, Url: t.Url, LogoUrl: t.LogoUrl, Date: t.Date})
+				ShowNotes: t.ShowNotes, Url: t.Url, LogoUrl: t.LogoUrl, Date: t.Date, Tags: t.Tags})
 	}
 
 	return c.Render(viewCasts, pager, num)

@@ -113,8 +113,18 @@ body {
     height: 180px;
 }
 
+.castTitle p {
+    margin-top: 10px;
+    font-size: 15px;
+}
+
+.castTitle p a {
+    text-decoration: none
+}
+
 .castContent {
     padding: 10px 5px;
+    margin: 5px 0px;
 }
 
 .castContent h3 {
@@ -122,6 +132,16 @@ body {
     font-weight: 700;
     font-size: 30px;
     margin: 5px 0px;
+}
+
+.castContent p {
+    color: #666666;
+    font-size: 18px;
+}
+
+.viewButton {
+    margin-bottom: 5px;
+    margin-top: 25px;
 }
 
 #comments{

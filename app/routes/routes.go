@@ -8,31 +8,6 @@ type tAdmin struct {}
 var Admin tAdmin
 
 
-func (_ tAdmin) Index(
-		) string {
-	args := make(map[string]string)
-	
-	return revel.MainRouter.Reverse("Admin.Index", args).Url
-}
-
-func (_ tAdmin) Password(
-		) string {
-	args := make(map[string]string)
-	
-	return revel.MainRouter.Reverse("Admin.Password", args).Url
-}
-
-func (_ tAdmin) UpdatePassword(
-		password string,
-		verify string,
-		) string {
-	args := make(map[string]string)
-	
-	revel.Unbind(args, "password", password)
-	revel.Unbind(args, "verify", verify)
-	return revel.MainRouter.Reverse("Admin.UpdatePassword", args).Url
-}
-
 func (_ tAdmin) Casts(
 		) string {
 	args := make(map[string]string)
@@ -111,6 +86,31 @@ func (_ tAdmin) RemoveCast(
 	
 	revel.Unbind(args, "id", id)
 	return revel.MainRouter.Reverse("Admin.RemoveCast", args).Url
+}
+
+func (_ tAdmin) Index(
+		) string {
+	args := make(map[string]string)
+	
+	return revel.MainRouter.Reverse("Admin.Index", args).Url
+}
+
+func (_ tAdmin) Password(
+		) string {
+	args := make(map[string]string)
+	
+	return revel.MainRouter.Reverse("Admin.Password", args).Url
+}
+
+func (_ tAdmin) UpdatePassword(
+		password string,
+		verify string,
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "password", password)
+	revel.Unbind(args, "verify", verify)
+	return revel.MainRouter.Reverse("Admin.UpdatePassword", args).Url
 }
 
 

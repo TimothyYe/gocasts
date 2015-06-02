@@ -15,12 +15,18 @@
                 <div class="castItem col-md-12 col-sm-12">
                     <div class="castTitle col-md-4">
                         <img src="/public/img/go-logo.png" alt=""/>
+                         <p>
+                            {{ range parseTags .Tags}}
+                            <a href="/tags/{{ . }}"><span class="label label-success">{{ . }}</span></a>
+                            {{ end }}
+                        </p>
                     </div>
                     <div class="castContent col-md-8">
                         <span>Created by <a href="{{ .AuthorUrl }}" target="_blank">{{.Author}}</a> @ {{ .Date }} </span>
+
                         <h3>{{ .Title }}</h3> 
                         <p>{{ .Intro }}</p>
-                        <a class="viewButton" href="/casts/{{ .Id }}" target="_blank"><button type="button-lg" class="btn btn-success">点击查看</button></a>
+                        <a href="/casts/{{ .Id }}" target="_blank"><button type="button-lg" class="btn btn-success viewButton">点击查看</button></a>
                     </div>
                 </div>
                 {{ end }} 
