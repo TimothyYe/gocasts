@@ -66,6 +66,12 @@ body {
     margin-bottom: 30px;
 }
 
+#captcha_img {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+}
+
 #login-content h1 span {
     color: #77CCA4;
 }
