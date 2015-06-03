@@ -14,10 +14,11 @@
                     </video>
                     <div>
                         <h3>{{ .Title }}</h3>
-                        <p>
-                        Created by <a href="{{ .AuthorUrl }}" target="_blank">{{.Author}}</a> @ {{ .Date }}
+                        <p class="castInfo">
+                        <span><i class="fa fa-user"></i> <a href="{{ .AuthorUrl }}" target="_blank">{{.Author}}</a></span><span><i class="fa fa-calendar"></i>  {{ .Date }}</span>
                         </p>
                         <p id="tags">
+                            <i class="fa fa-tags"></i>
                             {{ range parseTags .Tags}}
                             <a href="/tags/{{ . }}"><span class="label label-success">{{ . }}</span></a>
                             {{ end }}

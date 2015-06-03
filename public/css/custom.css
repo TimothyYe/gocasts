@@ -85,8 +85,12 @@ body {
     margin-bottom: 100px;
 }
 
-#tags a{
+#tags a {
     text-decoration: none
+}
+
+#tags i {
+    color: #78cff8;
 }
 
 #casts_form {
@@ -164,7 +168,15 @@ body {
     margin-bottom: 5px;
 }
 
-#comments{
+.castInfo span {
+    margin-right: 15px;
+}
+
+.castInfo i {
+    color: #78cff8;
+}
+
+#comments {
     margin-top: 30px;
 }
 
