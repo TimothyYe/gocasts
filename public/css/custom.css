@@ -111,6 +111,7 @@ body {
 }
 
 .castTitle {
+    margin-top: 15px;
 }
 
 .castTitle img {
@@ -120,7 +121,6 @@ body {
 .castTitle p {
     margin-top: 10px;
     font-size: 15px;
-    text-align: center;
 }
 
 .castTitle p a {
