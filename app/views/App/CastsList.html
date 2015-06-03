@@ -3,6 +3,7 @@
 {{append . "moreStyles" "/public/css/casts.css"}} 
 {{template "header.html" .}}
 
+<script src="/public/js/marked.js"></script>
 <div id="content">
     <div id="wrapper">
         <div class="container">
@@ -25,7 +26,11 @@
                     <div class="castContent col-md-8">
                         <a href="/casts/{{ .Id }}"><h3>{{ .Title }}</h3></a>
                         <span><i class="fa fa-user"></i> <a href="{{ .AuthorUrl }}" target="_blank">{{.Author}}</a></span><span><i class="fa fa-calendar"></i>  {{ .Date }}</span>
-                        <p>{{ .Intro }}</p>
+                        <p id="intro-{{ .Id }}"></p>
+                        <script type="text/javascript">
+                        document.getElementById('intro-{{ .Id }}').innerHTML =
+                        marked('{{ .Intro }}');
+                    </script>
                         <a href="/casts/{{ .Id }}"><button type="button-lg" class="btn btn-success viewButton">点击查看</button></a>
                     </div>
                 </div>

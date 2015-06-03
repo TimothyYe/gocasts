@@ -82,6 +82,7 @@ body {
 
 #wrapper {
     padding-top: 100px;
+    margin-bottom: 100px;
 }
 
 #tags a{
@@ -98,6 +99,10 @@ body {
     padding-right: 10px;
     padding-top: 5px;
     padding-bottom: 10px;
+}
+
+.casts-list {
+    margin-bottom: 100px;
 }
 
 .castItem {
@@ -133,7 +138,7 @@ body {
 }
 
 .castContent h3 {
-    color: #77CCA4;
+    color: #666666;
     font-weight: 700;
     font-size: 30px;
     margin: 5px 0px;
@@ -161,7 +166,6 @@ body {
 
 #comments{
     margin-top: 30px;
-    margin-bottom: 100px;
 }
 
 #footer {

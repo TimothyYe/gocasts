@@ -24,6 +24,10 @@ div.lowerCatCard {
     transition: all 0.6s ease;
 }
 
+div.lowerCatCard h3 {
+    color: #666666;
+}
+
 div.lowerCatCard p {
     font-size: 1em;
     color: #774F38;

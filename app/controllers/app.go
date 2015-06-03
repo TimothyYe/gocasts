@@ -69,7 +69,7 @@ func (c App) Index() revel.Result {
 func (c App) CastsList() revel.Result {
 	num, _ := c.MongoSession.DB("gocasts").C("casts").Count()
 
-	pers := 10
+	pers := 8
 	pager := NewPaginator(c.Request.Request, pers, num)
 
 	casts := []models.Casts{}
