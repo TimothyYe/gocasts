@@ -16,17 +16,17 @@
                     <div class="castTitle col-md-4">
                         <img src="/public/img/go-logo.png" alt=""/>
                          <p>
+                            <i class="fa fa-tags"></i>
                             {{ range parseTags .Tags}}
                             <a href="/tags/{{ . }}"><span class="label label-success">{{ . }}</span></a>
                             {{ end }}
                         </p>
                     </div>
                     <div class="castContent col-md-8">
-                        <span>Created by <a href="{{ .AuthorUrl }}" target="_blank">{{.Author}}</a> @ {{ .Date }} </span>
-
-                        <h3>{{ .Title }}</h3> 
+                        <a href="/casts/{{ .Id }}"><h3>{{ .Title }}</h3></a>
+                        <span><i class="fa fa-user"></i> <a href="{{ .AuthorUrl }}" target="_blank">{{.Author}}</a></span><span><i class="fa fa-calendar"></i>  {{ .Date }}</span>
                         <p>{{ .Intro }}</p>
-                        <a href="/casts/{{ .Id }}" target="_blank"><button type="button-lg" class="btn btn-success viewButton">点击查看</button></a>
+                        <a href="/casts/{{ .Id }}"><button type="button-lg" class="btn btn-success viewButton">点击查看</button></a>
                     </div>
                 </div>
                 {{ end }} 
