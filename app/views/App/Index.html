@@ -7,7 +7,7 @@
     <h1>Go<span>Casts</span></h1>
     <img src="/public/img/go-logo2.png" />
 </div>
-
+<script src="/public/js/marked.js"></script>
 <div id="content">
     <div class="container">
         <div class="row">
@@ -16,7 +16,11 @@
                 <a href="/casts/{{ .Id }}" target="_blank"><img src="/public/img/go-logo.png" alt="" /></a>
                 <div class="lowerCatCard">
                     <h3>{{ .Title }}</h3>
-                    <p>{{ .Intro }}</p>
+                    <p id="intro-{{ .Id }}"></p>
+                    <script type="text/javascript">
+                    document.getElementById('intro-{{ .Id }}').innerHTML =
+                        marked('{{ .Intro }}');
+                    </script>
                     <div id="catCardButton" class="button"><a href="/casts/{{ .Id }}">点击查看</a></div>
                 </div>
             </div>
