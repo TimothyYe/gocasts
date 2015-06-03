@@ -1,8 +1,9 @@
-{{set . "title" "GoCasts"}} 
-{{append . "moreStyles" "/public/css/custom.css"}} 
-{{append . "moreStyles" "/public/css/casts.css"}} 
+{{set . "title" "GoCasts"}}
+{{append . "moreStyles" "/public/css/custom.css"}}
+{{append . "moreStyles" "/public/css/casts.css"}}
 {{template "header.html" .}}
 
+<script src="/public/js/marked.js"></script>
 <div id="content">
     <div id="wrapper">
         <div class="container">
@@ -16,7 +17,11 @@
                     <a href="/casts/{{ .Id }}" target="_blank"><img src="/public/img/go-logo.png" alt="" /></a>
                     <div class="lowerCatCard">
                         <h3>{{ .Title }}</h3>
-                        <p>{{ .Intro }}</p>
+                        <p id="intro-{{ .Id }}"></p>
+                        <script type="text/javascript">
+                            document.getElementById('intro-{{ .Id }}').innerHTML =
+                            marked('{{ .Intro }}');
+                        </script>
                         <div id="catCardButton" class="button"><a href="/casts/{{ .Id }}" target="_blank">点击查看</a></div>
                     </div>
                 </div>
