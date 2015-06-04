@@ -4,6 +4,8 @@
 {{template "header.html" .}}
 
 <script src="/public/js/marked.js"></script>
+<script src="/public/js/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+
 <div id="content">
     <div id="wrapper">
         <div class="container">
@@ -11,31 +13,32 @@
                 <ol class="breadcrumb">
                     <li class="active">播客列表</li>
                 </ol>
-                {{ if .num }} 
-                {{ range .viewCasts }}
+                {{ if .num }} {{ range .viewCasts }}
                 <div class="castItem col-md-12 col-sm-12">
                     <div class="castTitle col-md-4">
-                        <img src="/public/img/go-logo.png" alt=""/>
-                         <p>
-                            <i class="fa fa-tags"></i>
-                            {{ range parseTags .Tags}}
-                            <a href="/tags/{{ . }}"><span class="label label-success">{{ . }}</span></a>
-                            {{ end }}
+                        <img src="/public/img/go-logo.png" alt="" />
+                        <p>
+                            <i class="fa fa-tags"></i> {{ range parseTags .Tags}}
+                            <a href="/tags/{{ . }}"><span class="label label-success">{{ . }}</span></a> {{ end }}
                         </p>
                     </div>
                     <div class="castContent col-md-8">
+                        <input type="hidden" id="castId" value="{{ .Id }}"/>
                         <a href="/casts/{{ .Id }}"><h3>{{ .Title }}</h3></a>
-                        <span><i class="fa fa-user"></i> <a href="{{ .AuthorUrl }}" target="_blank">{{.Author}}</a></span><span><i class="fa fa-calendar"></i>  {{ .Date }}</span>
+                        <span><i class="fa fa-user"></i> <a href="{{ .AuthorUrl }}" target="_blank">{{.Author}}</a></span>
+                        <span><i class="fa fa-calendar"></i>  {{ .Date }}</span>
+                        <span class="comments"><i class="fa fa-comments"></i></span>
                         <p id="intro-{{ .Id }}"></p>
                         <script type="text/javascript">
                         document.getElementById('intro-{{ .Id }}').innerHTML =
-                        marked('{{ .Intro }}');
-                    </script>
-                        <a href="/casts/{{ .Id }}"><button type="button-lg" class="btn btn-success viewButton">点击查看</button></a>
+                            marked('{{ .Intro }}');
+                        </script>
+                        <a href="/casts/{{ .Id }}">
+                            <button type="button-lg" class="btn btn-success viewButton">点击查看</button>
+                        </a>
                     </div>
                 </div>
-                {{ end }} 
-                {{ end }}
+                {{ end }} {{ end }}
             </div>
             <div class="row">
                 {{if gt .pager.PageNums 1}}
@@ -63,4 +66,23 @@
         </div>
     </div>
 </div>
+<script>
+$(document).ready(function() {
+   $('.castItem .castContent').each(function(){
+        var castId = $(this).children('#castId').val();
+        var span = $(this).children('.comments');
+
+        var getstr = "http://api.duoshuo.com/threads/counts.jsonp?short_name=gocasts&threads="+castId+"&callback=?"; 
+
+        $.getJSON(getstr, function(data) { 
+                 var counter=0;
+                 $.each(data.response, function(i, item) { 
+                     counter = item.comments; 
+                  }); 
+
+            span.html('<i class="fa fa-comments"></i>  '+counter);
+        }); 
+   });
+});
+</script>
 {{template "footer.html" .}}
