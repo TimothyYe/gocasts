@@ -38,11 +38,11 @@ body {
 
 #jumbotron h1 {
     color: #FFFFFF;
+    font-family: "Helvetica", "Helvetica Neue", "Arial", "Source Sans Pro";
     font-size: 100px;
     font-weight: 700;
     margin-top: 14px;
     margin-bottom: 10px;
-    font-family: "Source Sans Pro";
 }
 
 #jumbotron h1 span {
