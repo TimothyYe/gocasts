@@ -4,6 +4,102 @@ package routes
 import "github.com/revel/revel"
 
 
+type tApp struct {}
+var App tApp
+
+
+func (_ tApp) ShowCast(
+		id string,
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "id", id)
+	return revel.MainRouter.Reverse("App.ShowCast", args).Url
+}
+
+func (_ tApp) SearchTag(
+		tag string,
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "tag", tag)
+	return revel.MainRouter.Reverse("App.SearchTag", args).Url
+}
+
+func (_ tApp) Index(
+		) string {
+	args := make(map[string]string)
+	
+	return revel.MainRouter.Reverse("App.Index", args).Url
+}
+
+func (_ tApp) CastsList(
+		) string {
+	args := make(map[string]string)
+	
+	return revel.MainRouter.Reverse("App.CastsList", args).Url
+}
+
+func (_ tApp) About(
+		) string {
+	args := make(map[string]string)
+	
+	return revel.MainRouter.Reverse("App.About", args).Url
+}
+
+func (_ tApp) LoginView(
+		) string {
+	args := make(map[string]string)
+	
+	return revel.MainRouter.Reverse("App.LoginView", args).Url
+}
+
+func (_ tApp) Login(
+		username string,
+		password string,
+		captcha_id string,
+		captcha_value string,
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "username", username)
+	revel.Unbind(args, "password", password)
+	revel.Unbind(args, "captcha_id", captcha_id)
+	revel.Unbind(args, "captcha_value", captcha_value)
+	return revel.MainRouter.Reverse("App.Login", args).Url
+}
+
+func (_ tApp) Logout(
+		) string {
+	args := make(map[string]string)
+	
+	return revel.MainRouter.Reverse("App.Logout", args).Url
+}
+
+
+type tCaptcha struct {}
+var Captcha tCaptcha
+
+
+func (_ tCaptcha) GetCaptchaImage(
+		id string,
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "id", id)
+	return revel.MainRouter.Reverse("Captcha.GetCaptchaImage", args).Url
+}
+
+func (_ tCaptcha) GetCaptcha(
+		captchaid string,
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "captchaid", captchaid)
+	return revel.MainRouter.Reverse("Captcha.GetCaptcha", args).Url
+}
+
+
 type tAdmin struct {}
 var Admin tAdmin
 
@@ -111,102 +207,6 @@ func (_ tAdmin) UpdatePassword(
 	revel.Unbind(args, "password", password)
 	revel.Unbind(args, "verify", verify)
 	return revel.MainRouter.Reverse("Admin.UpdatePassword", args).Url
-}
-
-
-type tApp struct {}
-var App tApp
-
-
-func (_ tApp) ShowCast(
-		id string,
-		) string {
-	args := make(map[string]string)
-	
-	revel.Unbind(args, "id", id)
-	return revel.MainRouter.Reverse("App.ShowCast", args).Url
-}
-
-func (_ tApp) SearchTag(
-		tag string,
-		) string {
-	args := make(map[string]string)
-	
-	revel.Unbind(args, "tag", tag)
-	return revel.MainRouter.Reverse("App.SearchTag", args).Url
-}
-
-func (_ tApp) Index(
-		) string {
-	args := make(map[string]string)
-	
-	return revel.MainRouter.Reverse("App.Index", args).Url
-}
-
-func (_ tApp) CastsList(
-		) string {
-	args := make(map[string]string)
-	
-	return revel.MainRouter.Reverse("App.CastsList", args).Url
-}
-
-func (_ tApp) About(
-		) string {
-	args := make(map[string]string)
-	
-	return revel.MainRouter.Reverse("App.About", args).Url
-}
-
-func (_ tApp) LoginView(
-		) string {
-	args := make(map[string]string)
-	
-	return revel.MainRouter.Reverse("App.LoginView", args).Url
-}
-
-func (_ tApp) Login(
-		username string,
-		password string,
-		captcha_id string,
-		captcha_value string,
-		) string {
-	args := make(map[string]string)
-	
-	revel.Unbind(args, "username", username)
-	revel.Unbind(args, "password", password)
-	revel.Unbind(args, "captcha_id", captcha_id)
-	revel.Unbind(args, "captcha_value", captcha_value)
-	return revel.MainRouter.Reverse("App.Login", args).Url
-}
-
-func (_ tApp) Logout(
-		) string {
-	args := make(map[string]string)
-	
-	return revel.MainRouter.Reverse("App.Logout", args).Url
-}
-
-
-type tCaptcha struct {}
-var Captcha tCaptcha
-
-
-func (_ tCaptcha) GetCaptchaImage(
-		id string,
-		) string {
-	args := make(map[string]string)
-	
-	revel.Unbind(args, "id", id)
-	return revel.MainRouter.Reverse("Captcha.GetCaptchaImage", args).Url
-}
-
-func (_ tCaptcha) GetCaptcha(
-		captchaid string,
-		) string {
-	args := make(map[string]string)
-	
-	revel.Unbind(args, "captchaid", captchaid)
-	return revel.MainRouter.Reverse("Captcha.GetCaptcha", args).Url
 }
 
 
