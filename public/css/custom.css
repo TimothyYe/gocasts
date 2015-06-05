@@ -1,5 +1,5 @@
 body {
-    font-family: Tahoma, Helvetica, Arial, '宋体', sans-serif;
+    font-family: 'Source Sans Pro', Tahoma, Helvetica, Arial, sans-serif, 'Helvetica Neue';
     background-color: #F0F0D8;
 }
 
@@ -17,6 +17,7 @@ body {
     font-size: 30px;
     height: 50px;
     padding-top: 15px;
+    font-family: 'Source Sans Pro', Tahoma, Helvetica, Arial, sans-serif, 'Helvetica Neue';
 }
 
 #font-brand {
@@ -38,7 +39,7 @@ body {
 
 #jumbotron h1 {
     color: #FFFFFF;
-    font-family: "Helvetica", "Helvetica Neue", "Arial", "Source Sans Pro";
+    font-family: 'Source Sans Pro', Tahoma, Helvetica, Arial, sans-serif, 'Helvetica Neue';
     font-size: 100px;
     font-weight: 700;
     margin-top: 14px;
