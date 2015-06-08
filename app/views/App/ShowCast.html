@@ -1,6 +1,6 @@
-{{set . "title" "GoCasts"}} 
-{{append . "moreStyles" "/public/css/custom.css"}} 
-{{append . "moreStyles" "http://vjs.zencdn.net/4.7/video-js.css"}} 
+{{set . "title" "GoCasts"}}
+{{append . "moreStyles" "/public/css/custom.css"}}
+{{append . "moreStyles" "http://vjs.zencdn.net/4.9/video-js.css"}}
 {{template "header.html" .}}
 
 <div id="content">
@@ -37,7 +37,7 @@
                     <div id="comments">
                         <div class="ds-thread" data-thread-key="{{.Id}}" data-title="" data-url="http://vim-tips.com/casts/{{.Id}}"></div>
 
-                        <script src="http://vjs.zencdn.net/4.7/video.js"></script>
+                        <script src="http://vjs.zencdn.net/4.9/video.js"></script>
                         <script src="/public/js/marked.js"></script>
                         <script type="text/javascript">
                         var duoshuoQuery = {
