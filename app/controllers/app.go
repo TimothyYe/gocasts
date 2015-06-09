@@ -5,6 +5,7 @@ import (
 	"github.com/jgraham909/revmgo"
 	"github.com/revel/revel"
 	"github.com/timothyye/gocasts/app/models"
+	"golang.org/x/crypto/bcrypt"
 	"labix.org/v2/mgo/bson"
 )
 
@@ -117,8 +118,7 @@ func (c App) Login(username, password, captcha_id, captcha_value string) revel.R
 	id := models.Identity{}
 	c.MongoSession.DB("gocasts").C("id").Find(bson.M{"email": "admin@gocasts.net"}).One(&id)
 
-	if username == "admin@gocasts.net" && password == "111" {
-		// if username == "admin@gocasts.net" && bcrypt.CompareHashAndPassword(id.Password, []byte(password)) == nil {
+	if username == "admin@gocasts.net" && bcrypt.CompareHashAndPassword(id.Password, []byte(password)) == nil {
 		c.Session["user"] = "admin"
 		return c.Redirect(Admin.Index)
 	}
