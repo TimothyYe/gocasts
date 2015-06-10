@@ -2,37 +2,48 @@
 <html lang="zh-CN">
 
 <head>
-  <title>{{.title}}</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <link href="/public/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-  <link rel="stylesheet" type="text/css" href="/public/plugins/bootstrap/css/bootstrap.css">
-  <link rel="shortcut icon" type="image/png" href="/public/img/favicon.ico">
-  {{range .moreStyles}}
-    <link rel="stylesheet" type="text/css" href="{{.}}">
-  {{end}}
-  <script type="text/javascript" src="http://tajs.qq.com/stats?sId=46232232" charset="UTF-8"></script>
+    <title>{{.title}}</title>
+    <meta charset="utf-8">
+    <!--
+    Ask IE to behave like a modern browser
+    See: https://www.modern.ie/en-us/performance/how-to-use-x-ua-compatible
+    -->
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--
+    Stylesheet that minimizes browser differences.
+    See: http://necolas.github.io/normalize.css/
+    -->
+    <link rel="stylesheet" href="/public/css/normalize.css">
+    <link href="/public/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="/public/plugins/bootstrap/css/bootstrap.css">
+    <link rel="shortcut icon" type="image/png" href="/public/img/favicon.ico"> 
+    {{range .moreStyles}}
+    <link rel="stylesheet" type="text/css" href="{{.}}"> 
+    {{end}}
+    <script type="text/javascript" src="http://tajs.qq.com/stats?sId=46232232" charset="UTF-8"></script>
 </head>
 
 <body>
-  <div id="nav_bar" role="navigation" class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-      <div class="navbar-header">
-        <button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a href="/" class="navbar-brand"><span id="front-brand"><b>Go</b></span><span id="behind-brand"><b>Casts</b></span></a>
-      </div>
-      <div class="collapse navbar-collapse">
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="/">首页</a></li>
-          <li><a href="/casts">播客列表</a></li>
-          <li><a href="/about">关于</a></li>
-        </ul>
-      </div>
-      <!--/.nav-collapse -->
+    <div id="nav_bar" role="navigation" class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="/" class="navbar-brand"><span id="front-brand"><b>Go</b></span><span id="behind-brand"><b>Casts</b></span></a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/">首页</a></li>
+                    <li><a href="/casts">播客列表</a></li>
+                    <li><a href="/about">关于</a></li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
     </div>
-  </div>
