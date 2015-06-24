@@ -16,7 +16,7 @@
                 {{ if .num }} {{ range .viewCasts }}
                 <div class="castItem col-md-12 col-sm-12">
                     <div class="castTitle col-md-4">
-                        <img src="/public/img/go-logo.png" alt="" />
+                        <img src="{{ .LogoUrl }}" alt="" />
                         <p>
                             <i class="fa fa-tags"></i> {{ range parseTags .Tags}}
                             <a href="/tags/{{ . }}"><span class="label label-success">{{ . }}</span></a> {{ end }}
