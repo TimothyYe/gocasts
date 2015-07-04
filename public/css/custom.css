@@ -107,6 +107,10 @@ body {
     padding-bottom: 10px;
 }
 
+.panel-content {
+	padding: 15px;
+}
+
 .casts-list {
     margin-bottom: 100px;
 }
