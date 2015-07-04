@@ -11,3 +11,4 @@ This site is powered by Go & Revel Framework.
 
 * Go environment is needed. 
 * MongoDB is installed.
+* [Revel](http://revel.github.io) is installed.
