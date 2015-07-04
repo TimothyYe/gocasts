@@ -20,7 +20,7 @@ GET     /admin/casts/add                        Admin.AddCastPage
 POST    /admin/casts/add                        Admin.AddCast
 GET     /admin/casts/modify/:id                 Admin.ModifyCastPage
 POST    /admin/casts/modify                     Admin.ModifyCast
-POST    /admin/casts/remove      				Admin.RemoveCast
+POST    /admin/casts/remove      				        Admin.RemoveCast
 
 GET     /admin/password 						Admin.Password
 POST    /admin/password/update  				Admin.UpdatePassword
