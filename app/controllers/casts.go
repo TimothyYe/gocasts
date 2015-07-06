@@ -1,10 +1,11 @@
 package controllers
 
 import (
+	"time"
+
 	"github.com/revel/revel"
 	"github.com/timothyye/gocasts/app/models"
 	"labix.org/v2/mgo/bson"
-	"time"
 )
 
 func (c Admin) Casts() revel.Result {
@@ -35,7 +36,7 @@ func (c Admin) AddCastPage() revel.Result {
 func (c Admin) AddCast(author, authorurl, title, tags, intro, logourl, url, shownotes string) revel.Result {
 	cast := models.Casts{Id: bson.NewObjectId(), Author: author, AuthorUrl: authorurl,
 		VisitCount: 0, Title: title, Intro: intro, ShowNotes: shownotes,
-		Url: url, LogoUrl: logourl, Date: time.Now().Format("2006-01-02 15:04:05"), Tags: tags}
+		Url: url, LogoUrl: logourl, Date: time.Now().Format("2006-01-02"), Tags: tags}
 	c.MongoSession.DB("gocasts").C("casts").Insert(cast)
 
 	return c.Redirect(Admin.Casts)
