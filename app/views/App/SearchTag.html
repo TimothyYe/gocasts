@@ -14,7 +14,7 @@
                 </ol>
                 {{ if .num }} {{ range .viewCasts }}
                 <div class="catCard col-md-4 col-sm-6">
-                    <a href="/casts/{{ .Id }}" target="_blank"><img src="/public/img/go-logo.png" alt="" /></a>
+									<a href="/casts/{{ .Id }}" target="_blank"><img src="{{ .LogoUrl }}" alt="" /></a>
                     <div class="lowerCatCard">
                         <h3>{{ .Title }}</h3>
                         <p id="intro-{{ .Id }}"></p>
